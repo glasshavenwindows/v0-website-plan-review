@@ -25,13 +25,13 @@ export function ServiceCard({
   return (
     <div
       className={cn(
-        'glass-card rounded-2xl p-6 md:p-8 card-hover animate-fade-in-up opacity-0',
+        'glass-card rounded-2xl p-6 md:p-8 card-hover animate-fade-in-up opacity-0 border-l-4 border-l-primary',
         className
       )}
       style={{ animationDelay: `${delay}ms`, animationFillMode: 'forwards' }}
     >
       {/* Icon */}
-      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 text-primary">
         {icon}
       </div>
 

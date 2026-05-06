@@ -21,16 +21,24 @@ export function CTABlock({
   return (
     <section
       className={cn(
-        'py-16 md:py-20',
-        variant === 'glass' && 'bg-primary/5',
+        'py-16 md:py-20 relative overflow-hidden',
+        variant === 'glass' && 'bg-gradient-to-br from-primary/10 via-background to-secondary/10',
         variant === 'minimal' && 'bg-transparent',
-        variant === 'default' && 'bg-muted',
+        variant === 'default' && 'bg-muted pattern-bg',
         className
       )}
     >
-      <div className="container-content text-center">
+      {/* Decorative elements */}
+      {variant === 'glass' && (
+        <>
+          <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-secondary/20 blur-3xl" />
+        </>
+      )}
+
+      <div className="container-content text-center relative">
         {variant === 'glass' ? (
-          <div className="glass-card rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+          <div className="glass-card rounded-2xl p-8 md:p-12 max-w-2xl mx-auto border-primary/20">
             <h2 className="text-2xl font-bold text-foreground md:text-3xl">
               {heading}
             </h2>
@@ -38,7 +46,7 @@ export function CTABlock({
             <Button
               asChild
               size="lg"
-              className="mt-6 btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
+              className="mt-6 btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
             >
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                 {buttonText}
@@ -56,7 +64,7 @@ export function CTABlock({
             <Button
               asChild
               size="lg"
-              className="mt-6 btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
+              className="mt-6 btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
             >
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                 {buttonText}

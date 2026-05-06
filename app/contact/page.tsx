@@ -13,8 +13,8 @@ const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&mon
 const contactInfo = [
   {
     title: 'Phone',
-    value: '(123) 456-7890',
-    href: 'tel:+1234567890',
+    value: '(406) 607-5279',
+    href: 'tel:+14066075279',
     description: 'Call or text anytime',
     icon: (
       <svg
@@ -34,8 +34,8 @@ const contactInfo = [
   },
   {
     title: 'Email',
-    value: 'info@glasshavenwindows.com',
-    href: 'mailto:info@glasshavenwindows.com',
+    value: 'glasshavenwindows@gmail.com',
+    href: 'mailto:glasshavenwindows@gmail.com',
     description: 'We reply within 24 hours',
     icon: (
       <svg
@@ -80,7 +80,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="hero-gradient section-padding">
+      <section className="hero-gradient section-padding pattern-bg">
         <div className="container-content text-center">
           <h1 className="text-4xl font-bold text-foreground md:text-5xl animate-fade-in-up">
             Get In Touch
@@ -248,7 +248,7 @@ export default function ContactPage() {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-primary"
             >
-              <a href="tel:+1234567890">Call Now</a>
+              <a href="tel:+14066075279">Call Now</a>
             </Button>
           </div>
         </div>

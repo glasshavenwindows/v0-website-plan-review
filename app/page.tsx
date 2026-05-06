@@ -69,6 +69,65 @@ const services = [
   },
 ]
 
+// What we clean items with icons
+const cleaningItems = [
+  {
+    title: 'Windows',
+    icon: (
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="12" y1="3" x2="12" y2="21" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Screen Cleaning',
+    icon: (
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <line x1="2" y1="8" x2="22" y2="8" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <line x1="2" y1="16" x2="22" y2="16" />
+        <line x1="6" y1="4" x2="6" y2="20" />
+        <line x1="10" y1="4" x2="10" y2="20" />
+        <line x1="14" y1="4" x2="14" y2="20" />
+        <line x1="18" y1="4" x2="18" y2="20" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Track Cleaning',
+    icon: (
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <path d="M4 20h16" />
+        <path d="M4 20v-4h16v4" />
+        <path d="M6 16v-2h4v2" />
+        <path d="M14 16v-2h4v2" />
+        <path d="M8 14V8a4 4 0 018 0v6" />
+      </svg>
+    ),
+  },
+]
+
 const features = [
   {
     title: 'Experienced Team',
@@ -193,7 +252,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Services Overview */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding bg-muted/50 pattern-bg">
         <div className="container-content">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
@@ -202,6 +261,22 @@ export default function HomePage() {
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
               From cozy homes to sprawling commercial properties, we deliver spotless results tailored to your needs.
             </p>
+          </div>
+
+          {/* Cleaning Items Icons */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {cleaningItems.map((item, index) => (
+              <div
+                key={item.title}
+                className="flex flex-col items-center gap-3 animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  {item.icon}
+                </div>
+                <span className="text-sm font-medium text-foreground">{item.title}</span>
+              </div>
+            ))}
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -219,12 +294,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <CTABlock
+        variant="glass"
+        heading="Ready to See the Difference?"
+        description="Book your free estimate today and experience the Glass Haven difference. Crystal clear views are just one call away."
+        buttonText="Schedule Your Estimate"
+      />
+
       {/* Why Choose Us */}
       <section className="section-padding">
         <div className="container-content">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-              Why Choose Glass Haven?
+              Why Choose <span className="text-primary">Glass Haven</span>?
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
               We combine professional expertise with genuine care for your property.
@@ -245,16 +328,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <CTABlock
-        variant="glass"
-        heading="Ready to See the Difference?"
-        description="Book your free estimate today and experience the Glass Haven difference. Crystal clear views are just one call away."
-        buttonText="Schedule Your Estimate"
-      />
-
       {/* Process Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="container-content">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
@@ -285,10 +360,10 @@ export default function HomePage() {
             ].map((item, index) => (
               <div
                 key={item.step}
-                className="relative animate-fade-in-up opacity-0"
+                className="relative animate-fade-in-up opacity-0 glass-card rounded-xl p-6"
                 style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
               >
-                <div className="text-6xl font-bold text-primary/10">{item.step}</div>
+                <div className="text-5xl font-bold text-primary/20">{item.step}</div>
                 <h3 className="mt-2 text-xl font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-muted-foreground">{item.description}</p>
               </div>

@@ -143,7 +143,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="hero-gradient section-padding">
+      <section className="hero-gradient section-padding pattern-bg">
         <div className="container-content text-center">
           <h1 className="text-4xl font-bold text-foreground md:text-5xl animate-fade-in-up">
             Our Services
