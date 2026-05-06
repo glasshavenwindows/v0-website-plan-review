@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -20,12 +20,9 @@ export function MobileMenu({
   navigation,
   currentPath,
 }: MobileMenuProps) {
-  // Close menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose()
-      }
+      if (e.key === 'Escape') onClose()
     }
 
     if (isOpen) {
@@ -59,32 +56,22 @@ export function MobileMenu({
         )}
       >
         <div className="flex h-full flex-col">
+
           {/* Header */}
           <div className="flex items-center justify-between border-b border-border px-6 py-4">
             <span className="text-lg font-bold text-foreground">Menu</span>
+
             <button
               type="button"
               className="rounded-md p-2 text-muted-foreground hover:text-foreground"
               onClick={onClose}
               aria-label="Close menu"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              ✕
             </button>
           </div>
 
-          {/* Navigation Links */}
+          {/* Navigation */}
           <nav className="flex-1 px-6 py-6">
             <ul className="space-y-2">
               {navigation.map((item, index) => (
@@ -110,21 +97,25 @@ export function MobileMenu({
             </ul>
           </nav>
 
-          {/* CTA Section */}
+          {/* CTA */}
           <div className="border-t border-border px-6 py-6">
+
             <Button
               asChild
               className="w-full btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
               size="lg"
             >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Get Free Estimate
+              <a href={QUOTE_FORM_URL}>
+                Get Free Quote
               </a>
             </Button>
+
             <p className="mt-4 text-center text-sm text-muted-foreground">
               Open 8:00am - 6:30pm Daily
             </p>
+
           </div>
+
         </div>
       </div>
     </>
