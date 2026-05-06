@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 
 interface ServiceCardProps {
   title: string
@@ -70,8 +70,8 @@ export function ServiceCard({
           variant="outline"
           className="mt-6 w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
         >
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-            Get Estimate
+          <a href={QUOTE_FORM_URL}>
+            Get Free Quote
           </a>
         </Button>
       )}
