@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/FM6pga7bQWbYh4MM8'
 
 interface CTABlockProps {
   heading?: string
@@ -49,7 +49,7 @@ export function CTABlock({
               size="lg"
               className="mt-6 btn-lift cta-glow bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground font-semibold relative"
             >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              <a href={QUOTE_FORM_URL} target="_blank" rel="noopener noreferrer">
                 {buttonText}
               </a>
             </Button>
@@ -67,7 +67,7 @@ export function CTABlock({
               size="lg"
               className="mt-6 btn-lift cta-glow bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground font-semibold"
             >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              <a href={QUOTE_FORM_URL} target="_blank" rel="noopener noreferrer">
                 {buttonText}
               </a>
             </Button>
