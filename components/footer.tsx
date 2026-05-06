@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-white">
       {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-primary to-primary/90 py-12">
+      <div className="bg-gradient-to-r from-primary via-primary/95 to-secondary/80 py-12">
         <div className="container-content text-center">
           <h2 className="text-2xl font-bold text-primary-foreground md:text-3xl">
             Ready for Crystal Clear Views?
@@ -29,7 +29,7 @@ export function Footer() {
           <Button
             asChild
             size="lg"
-            className="mt-6 btn-lift bg-white text-primary hover:bg-white/90 font-semibold"
+            className="mt-6 btn-lift bg-white text-foreground hover:bg-secondary hover:text-foreground font-semibold border-2 border-white/20"
           >
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               Book Now

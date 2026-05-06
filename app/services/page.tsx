@@ -146,7 +146,7 @@ export default function ServicesPage() {
       <section className="hero-gradient section-padding pattern-bg">
         <div className="container-content text-center">
           <h1 className="text-4xl font-bold text-foreground md:text-5xl animate-fade-in-up">
-            Our Services
+            Our <span className="text-primary">Services</span>
           </h1>
           <p
             className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up"
@@ -192,10 +192,10 @@ export default function ServicesPage() {
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3 text-foreground">
                       <svg
-                        className="h-5 w-5 text-primary shrink-0"
+                        className="h-5 w-5 text-secondary shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
-                        strokeWidth="2"
+                        strokeWidth="2.5"
                         stroke="currentColor"
                       >
                         <path

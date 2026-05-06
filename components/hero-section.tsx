@@ -39,10 +39,10 @@ export function HeroSection({
         <div className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center py-20 text-center md:min-h-[calc(100vh-6rem)] lg:py-32">
           {/* Badge */}
           {showBadge && (
-            <div className="animate-fade-in-down mb-6 inline-flex items-center gap-2 rounded-full bg-primary/15 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20">
+            <div className="animate-fade-in-down mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-2 text-sm font-medium text-foreground backdrop-blur-sm border border-secondary/40">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
               </span>
               Now Booking Appointments
             </div>
@@ -91,49 +91,37 @@ export function HeroSection({
             className="animate-fade-in-up mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground"
             style={{ animationDelay: '300ms' }}
           >
-            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-secondary/30">
               <svg
-                className="h-5 w-5 text-primary"
-                fill="none"
+                className="h-5 w-5 text-secondary"
+                fill="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                   d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
               <span>Fully Insured</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-secondary/30">
               <svg
-                className="h-5 w-5 text-primary"
-                fill="none"
+                className="h-5 w-5 text-secondary"
+                fill="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                   d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
               <span>Eco-Friendly</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-secondary/30">
               <svg
-                className="h-5 w-5 text-primary"
-                fill="none"
+                className="h-5 w-5 text-secondary"
+                fill="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                   d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>

@@ -109,7 +109,7 @@ export default function AboutPage() {
       <section className="hero-gradient section-padding pattern-bg">
         <div className="container-content text-center">
           <h1 className="text-4xl font-bold text-foreground md:text-5xl animate-fade-in-up">
-            About Glass Haven
+            About <span className="text-primary">Glass</span> <span className="text-secondary">Haven</span>
           </h1>
           <p
             className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up"
@@ -170,7 +170,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-gradient-to-r from-primary via-primary to-secondary/70">
         <div className="container-content">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (

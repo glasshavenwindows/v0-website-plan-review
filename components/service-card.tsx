@@ -45,10 +45,10 @@ export function ServiceCard({
           {features.map((feature, index) => (
             <li key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
               <svg
-                className="h-4 w-4 text-primary shrink-0"
+                className="h-4 w-4 text-secondary shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 stroke="currentColor"
               >
                 <path

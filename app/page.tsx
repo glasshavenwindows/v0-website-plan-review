@@ -271,7 +271,7 @@ export default function HomePage() {
                 className="flex flex-col items-center gap-3 animate-fade-in-up opacity-0"
                 style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 text-primary border-2 border-secondary/30">
                   {item.icon}
                 </div>
                 <span className="text-sm font-medium text-foreground">{item.title}</span>
@@ -307,7 +307,7 @@ export default function HomePage() {
         <div className="container-content">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-              Why Choose <span className="text-primary">Glass Haven</span>?
+              Why Choose <span className="text-primary">Glass</span> <span className="text-secondary">Haven</span>?
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
               We combine professional expertise with genuine care for your property.
@@ -363,7 +363,7 @@ export default function HomePage() {
                 className="relative animate-fade-in-up opacity-0 glass-card rounded-xl p-6"
                 style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
               >
-                <div className="text-5xl font-bold text-primary/20">{item.step}</div>
+                <div className="text-5xl font-bold text-secondary">{item.step}</div>
                 <h3 className="mt-2 text-xl font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-muted-foreground">{item.description}</p>
               </div>
