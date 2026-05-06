@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Get in touch with Glass Haven Windows. Schedule your free estimate or ask us any questions. Open 8am-6:30pm daily.',
 }
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 
 const contactInfo = [
   {
@@ -79,176 +79,100 @@ const contactInfo = [
 export default function ContactPage() {
   return (
     <>
-      {/* Page Header */}
+      {/* Header */}
       <section className="hero-gradient section-padding pattern-bg">
         <div className="container-content text-center">
           <h1 className="text-4xl font-bold text-foreground md:text-5xl animate-fade-in-up">
             Get In Touch
           </h1>
-          <p
-            className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up"
-            style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
-          >
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
             Ready for crystal clear windows? Schedule your free estimate or reach out with any questions.
           </p>
         </div>
       </section>
 
-      {/* Main Contact Section */}
+      {/* Contact Info */}
       <section className="section-padding">
         <div className="container-content">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Contact Info */}
+
             <div>
               <h2 className="text-2xl font-bold text-foreground">Contact Information</h2>
-              <p className="mt-3 text-muted-foreground">
-                We are here to help. Reach out through any of these channels or use our scheduling tool to book your estimate directly.
-              </p>
 
-              {/* Contact Cards */}
               <div className="mt-8 space-y-4">
                 {contactInfo.map((item, index) => (
                   <div
                     key={item.title}
-                    className="glass-card rounded-xl p-5 card-hover animate-fade-in-up opacity-0"
-                    style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+                    className="glass-card rounded-xl p-5 card-hover"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         {item.icon}
                       </div>
+
                       <div>
                         <h3 className="font-semibold text-foreground">{item.title}</h3>
+
                         {item.href ? (
-                          <a
-                            href={item.href}
-                            className="text-primary hover:underline font-medium"
-                          >
+                          <a href={item.href} className="text-primary hover:underline font-medium">
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-foreground font-medium">{item.value}</p>
+                          <p className="font-medium text-foreground">{item.value}</p>
                         )}
-                        <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+
+                        <p className="text-sm text-muted-foreground">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Quick Schedule CTA */}
+              {/* Schedule CTA */}
               <div className="mt-8 glass-card rounded-xl p-6 bg-primary/5">
-                <h3 className="text-lg font-semibold text-foreground">
-                  Prefer to Schedule Online?
-                </h3>
+                <h3 className="text-lg font-semibold">Prefer to Schedule Online?</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Use our online scheduling tool to book your free estimate at a time that works for you.
+                  Book your free estimate using our quick form.
                 </p>
-                <Button
-                  asChild
-                  size="lg"
-                  className="mt-4 w-full btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+
+                <Button asChild className="mt-4 w-full btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href={QUOTE_FORM_URL} target="_blank" rel="noopener noreferrer">
                     Schedule Free Estimate
                   </a>
                 </Button>
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Form */}
             <div>
-              <h2 className="text-2xl font-bold text-foreground">Send Us a Message</h2>
+              <h2 className="text-2xl font-bold">Send Us a Message</h2>
               <p className="mt-3 text-muted-foreground">
-                Have a question or want more information? Fill out the form and we will get back to you within 24 hours.
+                We will get back to you within 24 hours.
               </p>
 
               <div className="mt-8">
                 <ContactForm />
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="section-padding bg-muted/50">
-        <div className="container-content">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-              Service Area
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              We proudly serve homes and businesses throughout the area. Not sure if we cover your location? Just ask!
-            </p>
-          </div>
-
-          <div className="mt-12 glass-card rounded-2xl p-8 md:p-12 text-center">
-            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mx-auto">
-              <svg
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="mt-6 text-xl font-semibold text-foreground">
-              Serving Your Community
-            </h3>
-            <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
-              We provide window cleaning services to residential and commercial properties throughout the local area. Contact us to confirm service availability in your neighborhood.
-            </p>
-            <Button
-              asChild
-              variant="outline"
-              className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Check Availability
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
+      {/* FINAL CTA */}
       <section className="section-padding bg-primary">
         <div className="container-content text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">
+          <h2 className="text-3xl font-bold text-primary-foreground">
             Let&apos;s Get Started
           </h2>
-          <p className="mt-4 text-primary-foreground/80 max-w-2xl mx-auto">
-            Your crystal clear windows are just one call away. Schedule your free estimate today.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="btn-lift bg-white text-primary hover:bg-white/90"
-            >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+
+          <div className="mt-8">
+            <Button asChild className="bg-white text-primary hover:bg-white/90">
+              <a href={QUOTE_FORM_URL} target="_blank" rel="noopener noreferrer">
                 Book Free Estimate
               </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-primary"
-            >
-              <a href="tel:+14066075279">Call Now</a>
             </Button>
           </div>
         </div>
