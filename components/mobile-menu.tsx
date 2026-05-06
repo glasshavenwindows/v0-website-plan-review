@@ -55,7 +55,7 @@ export function MobileMenu({
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className="flex h-full flex-col">
+        <div className="flex h-full flex-col bg-red-500">
 
           {/* Header */}
           <div className="flex items-center justify-between border-b border-border px-6 py-4">
