@@ -1,32 +1,54 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _geist = Geist({ subsets: ['latin'] })
+const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+  title: {
+    default: 'Glass Haven Windows | Professional Window Cleaning Services',
+    template: '%s | Glass Haven Windows',
   },
+  description:
+    'Expert residential and commercial window cleaning services. Crystal-clear results, professional service, eco-friendly solutions. Free estimates available. Open 8am-6:30pm daily.',
+  keywords: [
+    'window cleaning',
+    'professional window cleaning',
+    'residential window cleaning',
+    'commercial window cleaning',
+    'glass cleaning',
+    'window washing',
+  ],
+  authors: [{ name: 'Glass Haven Windows' }],
+  creator: 'Glass Haven Windows',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Glass Haven Windows',
+    title: 'Glass Haven Windows | Professional Window Cleaning Services',
+    description:
+      'Expert residential and commercial window cleaning services. Crystal-clear results every time.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Glass Haven Windows | Professional Window Cleaning Services',
+    description:
+      'Expert residential and commercial window cleaning services. Crystal-clear results every time.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#5ce1e6',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -35,9 +57,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
-        {children}
+    <html lang="en" className="bg-background">
+      <body className="font-sans antialiased min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
