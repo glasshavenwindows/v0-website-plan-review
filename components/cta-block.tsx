@@ -12,9 +12,9 @@ interface CTABlockProps {
 }
 
 export function CTABlock({
-  heading = 'Ready to See the Difference?',
-  description = 'Schedule your free estimate today.',
-  buttonText = 'Get Free Estimate',
+  heading = 'See the Difference for Your Home',
+  description = 'Upload a few photos and get a fast, accurate window cleaning quote.',
+  buttonText = 'Get Your Fast Quote',
   variant = 'default',
   className,
 }: CTABlockProps) {
@@ -28,7 +28,6 @@ export function CTABlock({
         className
       )}
     >
-      {/* Decorative elements */}
       {variant === 'glass' && (
         <>
           <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-primary/20 blur-3xl" />
@@ -40,10 +39,15 @@ export function CTABlock({
         {variant === 'glass' ? (
           <div className="glass-card rounded-2xl p-8 md:p-12 max-w-2xl mx-auto border-2 border-primary/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl -mr-16 -mt-16" />
+
             <h2 className="text-2xl font-bold text-foreground md:text-3xl relative">
               {heading}
             </h2>
-            <p className="mt-3 text-muted-foreground relative">{description}</p>
+
+            <p className="mt-3 text-muted-foreground relative">
+              {description}
+            </p>
+
             <Button
               asChild
               size="lg"
@@ -59,9 +63,11 @@ export function CTABlock({
             <h2 className="text-2xl font-bold text-foreground md:text-3xl">
               {heading}
             </h2>
+
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               {description}
             </p>
+
             <Button
               asChild
               size="lg"
