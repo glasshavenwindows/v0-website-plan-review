@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { MobileMenu } from '@/components/mobile-menu'
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 const PHONE_NUMBER = '(406) 607-5279'
 const PHONE_LINK = 'tel:+14066075279'
 
@@ -27,6 +27,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-white/80 backdrop-blur-md">
       <nav className="container-content">
         <div className="flex h-16 items-center justify-between md:h-20">
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -59,17 +60,23 @@ export function Header() {
 
           {/* Desktop CTA & Phone */}
           <div className="hidden items-center gap-4 md:flex">
+
             <a
               href={PHONE_LINK}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {PHONE_NUMBER}
             </a>
-            <Button asChild className="btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Free Estimate
+
+            <Button
+              asChild
+              className="btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              <a href={QUOTE_FORM_URL}>
+                Get Free Quote
               </a>
             </Button>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,6 +100,7 @@ export function Header() {
               />
             </svg>
           </button>
+
         </div>
       </nav>
 

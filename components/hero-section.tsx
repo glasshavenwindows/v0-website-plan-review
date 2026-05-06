@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 
 interface HeroSectionProps {
   title?: string
@@ -12,19 +12,19 @@ interface HeroSectionProps {
 export function HeroSection({
   title = 'Crystal Clear Windows,',
   highlight = 'Every Time',
-  description = 'Professional window cleaning services for homes and businesses. We bring clarity to your view with eco-friendly solutions and meticulous attention to detail.',
+  description = 'Upload a few photos and get a fast, accurate window cleaning quote for your home or business.',
   showBadge = true,
 }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden">
+
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80')`,
         }}
       >
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-primary/10" />
       </div>
 
@@ -37,6 +37,7 @@ export function HeroSection({
 
       <div className="container-content relative">
         <div className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center py-20 text-center md:min-h-[calc(100vh-6rem)] lg:py-32">
+
           {/* Badge */}
           {showBadge && (
             <div className="animate-fade-in-down mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-2 text-sm font-medium text-foreground backdrop-blur-sm border border-secondary/40">
@@ -44,7 +45,7 @@ export function HeroSection({
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
               </span>
-              Now Booking Appointments
+              Now Offering Fast Photo Quotes
             </div>
           )}
 
@@ -72,10 +73,11 @@ export function HeroSection({
               size="lg"
               className="btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90 px-8 font-semibold"
             >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Get Free Estimate
+              <a href={QUOTE_FORM_URL}>
+                Get Fast Quote
               </a>
             </Button>
+
             <Button
               asChild
               variant="outline"
@@ -92,42 +94,18 @@ export function HeroSection({
             style={{ animationDelay: '300ms' }}
           >
             <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-secondary/30">
-              <svg
-                className="h-5 w-5 text-secondary"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
               <span>Fully Insured</span>
             </div>
+
             <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-secondary/30">
-              <svg
-                className="h-5 w-5 text-secondary"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
               <span>Eco-Friendly</span>
             </div>
+
             <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-secondary/30">
-              <svg
-                className="h-5 w-5 text-secondary"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
               <span>100% Satisfaction</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>

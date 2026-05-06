@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
-const CALENDLY_URL = 'https://calendly.com/glasshavenwindows/estimate?back=1&month=2026-05'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 
 interface FormData {
   name: string
@@ -70,13 +70,11 @@ export function ContactForm() {
 
     setIsSubmitting(true)
 
-    // Simulate form submission delay
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     setIsSubmitting(false)
     setIsSubmitted(true)
 
-    // Reset form after short delay
     setTimeout(() => {
       setFormData({
         name: '',
@@ -93,7 +91,6 @@ export function ContactForm() {
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }))
     }
@@ -103,26 +100,19 @@ export function ContactForm() {
     return (
       <div className="glass-card rounded-xl p-8 text-center animate-scale-in">
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mx-auto">
-          <svg
-            className="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
+          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
+
         <h3 className="mt-4 text-xl font-semibold text-foreground">
           Message Sent!
         </h3>
+
         <p className="mt-2 text-muted-foreground">
           Thank you for reaching out. We will get back to you within 24 hours.
         </p>
+
         <div className="mt-6 space-y-3">
           <Button
             onClick={() => setIsSubmitted(false)}
@@ -131,12 +121,13 @@ export function ContactForm() {
           >
             Send Another Message
           </Button>
+
           <Button
             asChild
             className="w-full btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Or Schedule Your Estimate Now
+            <a href={QUOTE_FORM_URL} target="_blank" rel="noopener noreferrer">
+              Get Your Fast Quote
             </a>
           </Button>
         </div>
@@ -147,42 +138,27 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="glass-card rounded-xl p-6 md:p-8">
       <div className="space-y-5">
+
         {/* Name */}
         <div className="space-y-2">
-          <Label htmlFor="name">
-            Name <span className="text-destructive">*</span>
-          </Label>
+          <Label htmlFor="name">Name *</Label>
           <Input
             id="name"
             name="name"
-            type="text"
-            placeholder="Your name"
             value={formData.name}
             onChange={handleChange}
-            className={errors.name ? 'border-destructive' : ''}
           />
-          {errors.name && (
-            <p className="text-sm text-destructive">{errors.name}</p>
-          )}
         </div>
 
         {/* Email */}
         <div className="space-y-2">
-          <Label htmlFor="email">
-            Email <span className="text-destructive">*</span>
-          </Label>
+          <Label htmlFor="email">Email *</Label>
           <Input
             id="email"
             name="email"
-            type="email"
-            placeholder="you@example.com"
             value={formData.email}
             onChange={handleChange}
-            className={errors.email ? 'border-destructive' : ''}
           />
-          {errors.email && (
-            <p className="text-sm text-destructive">{errors.email}</p>
-          )}
         </div>
 
         {/* Phone */}
@@ -191,8 +167,6 @@ export function ContactForm() {
           <Input
             id="phone"
             name="phone"
-            type="tel"
-            placeholder="(123) 456-7890"
             value={formData.phone}
             onChange={handleChange}
           />
@@ -200,7 +174,7 @@ export function ContactForm() {
 
         {/* Service Type */}
         <div className="space-y-2">
-          <Label htmlFor="serviceType">Service Type (Optional)</Label>
+          <Label>Service Type (Optional)</Label>
           <Select
             value={formData.serviceType}
             onValueChange={(value) =>
@@ -221,70 +195,33 @@ export function ContactForm() {
 
         {/* Message */}
         <div className="space-y-2">
-          <Label htmlFor="message">
-            Message <span className="text-destructive">*</span>
-          </Label>
+          <Label>Message *</Label>
           <Textarea
-            id="message"
             name="message"
-            placeholder="Tell us about your project or ask any questions..."
-            rows={4}
             value={formData.message}
             onChange={handleChange}
-            className={errors.message ? 'border-destructive' : ''}
+            rows={4}
           />
-          {errors.message && (
-            <p className="text-sm text-destructive">{errors.message}</p>
-          )}
         </div>
 
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          size="lg"
-          className="w-full btn-lift cta-glow bg-primary text-primary-foreground hover:bg-primary/90"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            <span className="flex items-center gap-2">
-              <svg
-                className="h-4 w-4 animate-spin"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
-              </svg>
-              Sending...
-            </span>
-          ) : (
-            'Send Message'
-          )}
+        {/* Submit */}
+        <Button type="submit" className="w-full">
+          Send Message
         </Button>
 
-        {/* Alternative CTA */}
+        {/* FINAL CTA (FIXED) */}
         <p className="text-center text-sm text-muted-foreground">
           Or{' '}
           <a
-            href={CALENDLY_URL}
+            href={QUOTE_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline font-medium"
           >
-            schedule your estimate directly
+            get your fast quote
           </a>
         </p>
+
       </div>
     </form>
   )
