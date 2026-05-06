@@ -12,7 +12,7 @@ interface HeroSectionProps {
 export function HeroSection({
   title = 'Crystal Clear Windows,',
   highlight = 'Every Time',
-  description = 'Upload a few photos and get a fast, accurate window cleaning quote for your home or business.',
+  description = 'Proudly serving the Flathead Valley. Upload a few photos and receive a fast, accurate window cleaning quote for your home or business.',
   showBadge = true,
 }: HeroSectionProps) {
   return (
