@@ -54,7 +54,7 @@ export function Footer() {
               alt="Glass Haven Windows"
               width={160}
               height={64}
-              className="h-16 w-auto brightness-0 invert"
+              className="h-16 w-auto"
             />
             <p className="mt-4 text-sm text-white/70 max-w-xs">
               Professional window cleaning services for homes and businesses.
