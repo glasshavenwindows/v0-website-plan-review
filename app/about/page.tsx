@@ -96,8 +96,8 @@ const values = [
 ]
 
 const stats = [
-  { value: '500+', label: 'Happy Customers' },
-  { value: '5,000+', label: 'Windows Cleaned' },
+  { value: '100+', label: 'Happy Customers' },
+  { value: '3,000+', label: 'Windows Cleaned' },
   { value: '100%', label: 'Satisfaction Rate' },
   { value: '7', label: 'Days a Week' },
 ]
