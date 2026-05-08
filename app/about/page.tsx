@@ -161,7 +161,6 @@ export default function AboutPage() {
                 <p className="mt-6 text-xl font-semibold text-foreground">Will</p>
                 <p className="text-muted-foreground">Founder & Lead Technician</p>
                 <p className="mt-4 text-sm text-muted-foreground max-w-xs mx-auto">
-                  Professional photo coming soon
                 </p>
               </div>
             </div>
