@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import Script from 'next/script' // This is required for the Pixel to work
+import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <head>
-        {/* Meta Pixel Code */}
+        {/* Meta Pixel Base Code */}
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -75,9 +75,21 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+
+        {/* Global Click Listener for Google Form */}
+        <Script id="fb-pixel-lead-listener" strategy="afterInteractive">
+          {`
+            document.addEventListener('click', function(e) {
+              const link = e.target.closest('a');
+              if (link && link.href.includes('forms.gle/4c7HSYKmWhmjq47B6')) {
+                fbq('track', 'Lead');
+                console.log('Meta Pixel: Lead event fired for Glass Haven Estimate Form');
+              }
+            }, true);
+          `}
+        </Script>
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        {/* Fallback for users with JavaScript disabled */}
         <noscript>
           <img 
             height="1" 
