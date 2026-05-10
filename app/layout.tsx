@@ -76,16 +76,20 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Global Click Listener for Google Form */}
+        {/* Enhanced Global Click Listener */}
         <Script id="fb-pixel-lead-listener" strategy="afterInteractive">
           {`
-            document.addEventListener('click', function(e) {
-              const link = e.target.closest('a');
-              if (link && link.href.includes('forms.gle/4c7HSYKmWhmjq47B6')) {
-                fbq('track', 'Lead');
-                console.log('Meta Pixel: Lead event fired for Glass Haven Estimate Form');
-              }
-            }, true);
+            (function() {
+              document.addEventListener('click', function(e) {
+                const target = e.target.closest('a');
+                if (target && target.href.includes('forms.gle/4c7HSYKmWhmjq47B6')) {
+                  console.log('Lead Triggered: Redirecting to Google Form');
+                  if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead');
+                  }
+                }
+              }, { capture: true });
+            })();
           `}
         </Script>
       </head>
