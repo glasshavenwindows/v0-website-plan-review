@@ -22,7 +22,7 @@ export function HeroSection({
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-primary/10" />
@@ -111,3 +111,4 @@ export function HeroSection({
     </section>
   )
 }
+
