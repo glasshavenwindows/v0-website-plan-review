@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { CTABlock } from '@/components/cta-block'
 
 export const metadata: Metadata = {
@@ -140,29 +141,15 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Visual Placeholder */}
-            <div className="glass-card rounded-2xl p-8 aspect-square flex items-center justify-center">
-              <div className="text-center">
-                <div className="inline-flex h-24 w-24 items-center justify-center rounded-full bg-primary/10 text-primary mx-auto">
-                  <svg
-                    className="h-12 w-12"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                    />
-                  </svg>
-                </div>
-                <p className="mt-6 text-xl font-semibold text-foreground">Will</p>
-                <p className="text-muted-foreground">Founder & Lead Technician</p>
-                <p className="mt-4 text-sm text-muted-foreground max-w-xs mx-auto">
-                </p>
-              </div>
+            {/* Will's Photo */}
+            <div className="glass-card rounded-2xl overflow-hidden aspect-square">
+              <Image
+                src="/images/will-photo.jpg"
+                alt="Will, Founder & Lead Technician of Glass Haven Windows"
+                width={600}
+                height={600}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </div>
         </div>
@@ -281,20 +268,14 @@ export default function AboutPage() {
                 &ldquo;Our mission is simple: to bring clarity to your view and a smile to your face. Every window we clean is an opportunity to make someone&apos;s day a little brighter.&rdquo;
               </blockquote>
               <div className="mt-6 flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                    />
-                  </svg>
+                <div className="h-12 w-12 rounded-full overflow-hidden shrink-0">
+                  <Image
+                    src="/images/will-photo.jpg"
+                    alt="Will"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">Will</p>
@@ -316,3 +297,4 @@ export default function AboutPage() {
     </>
   )
 }
+
