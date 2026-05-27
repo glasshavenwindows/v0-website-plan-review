@@ -40,6 +40,66 @@ export function HeroSection({
         <div className="absolute bottom-1/4 left-1/3 h-56  w-56  rounded-full bg-secondary/10 blur-2xl" />
       </div>
 
+      {/* Montana landscape — mountain range + pine tree silhouettes */}
+      <div className="absolute bottom-0 inset-x-0 pointer-events-none overflow-hidden" aria-hidden="true">
+
+        {/* Distant mountain range — two depth layers */}
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="xMidYMax slice" className="absolute bottom-0 w-full">
+          {/* Far peaks */}
+          <path
+            d="M0,180 L0,125 L90,65 L180,105 L300,40 L420,90 L540,30 L660,80 L780,22 L900,75 L1020,38 L1140,82 L1260,48 L1380,70 L1440,50 L1440,180 Z"
+            fill="rgba(92,225,230,0.06)"
+          />
+          {/* Closer ridge */}
+          <path
+            d="M0,180 L0,158 L110,108 L220,142 L340,95 L460,130 L580,102 L700,145 L820,108 L940,142 L1060,115 L1180,148 L1300,118 L1440,135 L1440,180 Z"
+            fill="rgba(92,225,230,0.10)"
+          />
+        </svg>
+
+        {/* Pine trees — left cluster */}
+        <svg viewBox="0 0 210 155" className="absolute bottom-0 left-0 h-36 md:h-52">
+          {/* Tallest tree */}
+          <polygon points="32,8  46,38  18,38"  fill="rgba(92,225,230,0.18)" />
+          <polygon points="32,28 50,60  14,60"  fill="rgba(92,225,230,0.18)" />
+          <polygon points="32,50 54,88  10,88"  fill="rgba(92,225,230,0.18)" />
+          <polygon points="32,74 57,116  7,116" fill="rgba(92,225,230,0.18)" />
+          <rect x="28" y="116" width="8" height="32" fill="rgba(92,225,230,0.18)" />
+          {/* Medium tree */}
+          <polygon points="88,35  100,58  76,58"  fill="rgba(92,225,230,0.15)" />
+          <polygon points="88,52  103,78  73,78"  fill="rgba(92,225,230,0.15)" />
+          <polygon points="88,70  106,102 70,102" fill="rgba(92,225,230,0.15)" />
+          <rect x="85" y="102" width="6" height="46" fill="rgba(92,225,230,0.15)" />
+          {/* Second tall tree */}
+          <polygon points="152,18 165,48 139,48" fill="rgba(92,225,230,0.17)" />
+          <polygon points="152,38 168,70 136,70" fill="rgba(92,225,230,0.17)" />
+          <polygon points="152,60 170,96 134,96" fill="rgba(92,225,230,0.17)" />
+          <polygon points="152,83 173,124 131,124" fill="rgba(92,225,230,0.17)" />
+          <rect x="148" y="124" width="8" height="24" fill="rgba(92,225,230,0.17)" />
+        </svg>
+
+        {/* Pine trees — right cluster */}
+        <svg viewBox="0 0 190 145" className="absolute bottom-0 right-0 h-32 md:h-44">
+          {/* Short tree */}
+          <polygon points="40,24  53,50  27,50"  fill="rgba(92,225,230,0.14)" />
+          <polygon points="40,42  56,72  24,72"  fill="rgba(92,225,230,0.14)" />
+          <polygon points="40,62  60,96  20,96"  fill="rgba(92,225,230,0.14)" />
+          <rect x="36" y="96" width="8" height="42" fill="rgba(92,225,230,0.14)" />
+          {/* Tallest tree */}
+          <polygon points="102,5  118,38  86,38"   fill="rgba(92,225,230,0.17)" />
+          <polygon points="102,28 122,65  82,65"   fill="rgba(92,225,230,0.17)" />
+          <polygon points="102,52 125,93  79,93"   fill="rgba(92,225,230,0.17)" />
+          <polygon points="102,78 128,122 76,122"  fill="rgba(92,225,230,0.17)" />
+          <rect x="98" y="122" width="8" height="16" fill="rgba(92,225,230,0.17)" />
+          {/* Small tree */}
+          <polygon points="152,44 164,66 140,66" fill="rgba(92,225,230,0.13)" />
+          <polygon points="152,58 166,84 138,84" fill="rgba(92,225,230,0.13)" />
+          <polygon points="152,74 169,106 135,106" fill="rgba(92,225,230,0.13)" />
+          <rect x="149" y="106" width="6" height="32" fill="rgba(92,225,230,0.13)" />
+        </svg>
+
+      </div>
+
       <div className="container-content relative">
         <div className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center py-20 text-center md:min-h-[calc(100vh-6rem)] lg:py-32">
 
