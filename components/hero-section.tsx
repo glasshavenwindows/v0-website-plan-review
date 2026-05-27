@@ -18,21 +18,26 @@ export function HeroSection({
   return (
     <section className="relative overflow-hidden">
 
-      {/* Background Image */}
+      {/* Background - Brand mesh gradient */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80')`,
+          background: `
+            radial-gradient(ellipse 90% 70% at 0% 0%,   rgba(92, 225, 230, 0.22) 0%, transparent 55%),
+            radial-gradient(ellipse 70% 60% at 100% 5%,  rgba(240, 217, 69, 0.14) 0%, transparent 55%),
+            radial-gradient(ellipse 80% 70% at 100% 100%, rgba(92, 225, 230, 0.16) 0%, transparent 55%),
+            radial-gradient(ellipse 60% 50% at 10% 100%,  rgba(240, 217, 69, 0.09) 0%, transparent 50%),
+            #f8f9fa
+          `,
         }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-primary/10" />
-      </div>
+      />
 
-      {/* Decorative Elements */}
+      {/* Decorative soft orbs — add depth to the mesh */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-secondary/20 blur-3xl" />
-        <div className="absolute top-1/4 right-1/4 h-64 w-64 rounded-full bg-primary/10 blur-2xl" />
+        <div className="absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-secondary/18 blur-3xl" />
+        <div className="absolute top-1/3 right-1/4  h-72  w-72  rounded-full bg-primary/12  blur-2xl" />
+        <div className="absolute bottom-1/4 left-1/3 h-56  w-56  rounded-full bg-secondary/10 blur-2xl" />
       </div>
 
       <div className="container-content relative">
