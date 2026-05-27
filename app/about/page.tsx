@@ -148,7 +148,7 @@ export default function AboutPage() {
                 alt="Will, Founder & Lead Technician of Glass Haven Windows"
                 width={600}
                 height={600}
-                className="w-full h-full object-cover [object-position:80%_100%]"
+                className="w-full h-full object-cover [object-position:75%_100%]"
               />
             </div>
           </div>
