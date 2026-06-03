@@ -2,11 +2,23 @@
 
 import { usePathname } from 'next/navigation'
 import Script from 'next/script'
+import { useEffect } from 'react'
 
 export function ChatWidget() {
   const pathname = usePathname()
 
-  if (pathname === '/contact') return null
+  useEffect(() => {
+    const toggle = () => {
+      document.querySelectorAll('iframe[src*="leadconnectorhq"]').forEach(el => {
+        const target = (el.closest('div') ?? el) as HTMLElement
+        target.style.display = pathname === '/contact' ? 'none' : ''
+      })
+    }
+
+    toggle()
+    const timer = setTimeout(toggle, 800)
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   return (
     <Script
