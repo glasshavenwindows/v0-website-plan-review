@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
             <p><strong>Glass Haven Windows</strong></p>
             <p>Phone: (406) 607-5279</p>
             <p>Email: glasshavenwindows@gmail.com</p>
-            <p>[BUSINESS ADDRESS]</p>
+            <p className="text-xs text-muted-foreground/60">239 Aero Lane, Bigfork, MT 59911</p>
           </div>
         </section>
 
