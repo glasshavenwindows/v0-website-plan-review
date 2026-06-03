@@ -14,6 +14,11 @@ const navigation = [
   { name: 'Contact', href: '/contact' },
 ]
 
+const legal = [
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+  { name: 'Terms & Conditions', href: '/terms' },
+]
+
 export function Footer() {
   return (
     <footer className="bg-foreground text-white">
@@ -45,7 +50,7 @@ export function Footer() {
 
       {/* Footer Content */}
       <div className="container-content py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -67,6 +72,23 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-white">Navigation</h3>
             <ul className="mt-4 space-y-3">
               {navigation.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-white/70 hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-sm font-semibold text-white">Legal</h3>
+            <ul className="mt-4 space-y-3">
+              {legal.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
