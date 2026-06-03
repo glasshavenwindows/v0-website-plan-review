@@ -21,6 +21,7 @@ interface FormData {
   phone: string
   serviceType: string
   message: string
+  smsConsent: boolean
 }
 
 export function ContactForm() {
@@ -30,6 +31,7 @@ export function ContactForm() {
     phone: '',
     serviceType: '',
     message: '',
+    smsConsent: false,
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -61,6 +63,7 @@ export function ContactForm() {
         phone: '',
         serviceType: '',
         message: '',
+        smsConsent: false,
       })
     } catch (err) {
       setError('Something went wrong. Please try again.')
@@ -83,13 +86,9 @@ export function ContactForm() {
           Message Sent!
         </h3>
         <p className="mt-2 text-muted-foreground">
-          We’ll get back to you within 24 hours.
+          We'll get back to you within 24 hours.
         </p>
-
-        <Button
-          onClick={() => setIsSubmitted(false)}
-          className="mt-6 w-full"
-        >
+        <Button onClick={() => setIsSubmitted(false)} className="mt-6 w-full">
           Send Another Message
         </Button>
       </div>
@@ -113,6 +112,26 @@ export function ContactForm() {
         <div className="space-y-2">
           <Label>Phone</Label>
           <Input name="phone" value={formData.phone} onChange={handleChange} />
+        </div>
+
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="smsConsent"
+            checked={formData.smsConsent}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, smsConsent: e.target.checked }))
+            }
+            className="mt-1 h-4 w-4 shrink-0 accent-[#5ce1e6]"
+          />
+          <label htmlFor="smsConsent" className="text-xs text-muted-foreground leading-relaxed">
+            I consent to receive SMS text messages from Glass Haven Windows at the phone number provided.
+            Message frequency varies. Message & data rates may apply. Reply <strong>STOP</strong> to
+            opt out, <strong>HELP</strong> for help. See our{' '}
+            <a href="/privacy-policy" className="underline hover:text-foreground">Privacy Policy</a>
+            {' '}and{' '}
+            <a href="/terms" className="underline hover:text-foreground">Terms & Conditions</a>.
+          </label>
         </div>
 
         <div className="space-y-2">
