@@ -5,6 +5,7 @@ import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { ChatWidget } from '@/components/chat-widget'
 
 const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
@@ -108,14 +109,7 @@ export default function RootLayout({
         <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
 
-        {/* GoHighLevel Chat Widget */}
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6a1f8016b2d4c061bc720089"
-          data-source="WEB_USER"
-          strategy="afterInteractive"
-        />
+        <ChatWidget />
       </body>
     </html>
   )
