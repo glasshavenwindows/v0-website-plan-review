@@ -61,6 +61,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <head>
+        {/* GoHighLevel Chat Widget */}
+        <script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a1f8016b2d4c061bc720089"
+          data-source="WEB_USER"
+          async
+        />
+
         {/* Meta Pixel Base Code */}
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
@@ -96,9 +105,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
         <noscript>
-          <img 
-            height="1" 
-            width="1" 
+          <img
+            height="1"
+            width="1"
             style={{ display: 'none' }}
             src="https://www.facebook.com/tr?id=2143457473120173&ev=PageView&noscript=1"
           />
