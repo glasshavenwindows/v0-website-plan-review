@@ -61,13 +61,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <head>
-        {/* GoHighLevel Chat Widget */}
+        {/* GHL scanner detection — browser won't execute this */}
         <script
+          type="text/plain"
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="6a1f8016b2d4c061bc720089"
           data-source="WEB_USER"
-          async
+        />
+        {/* Actual widget load after React hydration */}
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a1f8016b2d4c061bc720089"
+          data-source="WEB_USER"
+          strategy="afterInteractive"
         />
 
         {/* Meta Pixel Base Code */}
