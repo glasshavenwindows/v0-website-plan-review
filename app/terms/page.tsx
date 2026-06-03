@@ -17,7 +17,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-semibold">1. Services</h2>
           <p className="text-muted-foreground leading-relaxed">
             Glass Haven Windows provides residential and commercial window cleaning services
-            in the Billings, Montana area. By requesting a quote or booking a service through
+            in the Bigfork, Montana area. By requesting a quote or booking a service through
             our website, you agree to these Terms & Conditions.
           </p>
         </section>
@@ -83,7 +83,7 @@ export default function TermsPage() {
             <p><strong>Glass Haven Windows</strong></p>
             <p>Phone: (406) 607-5279</p>
             <p>Email: glasshavenwindows@gmail.com</p>
-            <p>[BUSINESS ADDRESS]</p>
+            <p className="text-xs text-muted-foreground/60">239 Aero Lane, Bigfork, MT 59911</p>
           </div>
         </section>
 
