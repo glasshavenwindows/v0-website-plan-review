@@ -66,14 +66,14 @@ export default function RootLayout({
           type="text/plain"
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6a1f8016b2d4c061bc720089"
+          data-widget-id="6a1fb7c92b348da0f7692fd9"
           data-source="WEB_USER"
         />
         {/* Actual widget load after React hydration */}
         <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6a1f8016b2d4c061bc720089"
+          data-widget-id="6a1fb7c92b348da0f7692fd9"
           data-source="WEB_USER"
           strategy="afterInteractive"
         />
