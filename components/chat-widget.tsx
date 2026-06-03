@@ -9,10 +9,10 @@ export function ChatWidget() {
 
   useEffect(() => {
     const toggle = () => {
-      document.querySelectorAll('iframe[src*="leadconnectorhq"]').forEach(el => {
-        const target = (el.closest('div') ?? el) as HTMLElement
-        target.style.display = pathname === '/contact' ? 'none' : ''
-      })
+      const widget = document.querySelector('chat-widget') as HTMLElement | null
+      if (widget) {
+        widget.style.display = pathname === '/contact' ? 'none' : ''
+      }
     }
 
     toggle()
