@@ -66,10 +66,7 @@ const services = [
     ),
     features: [
       'Hard water stain removal',
-      'Mineral deposit cleaning',
-      'Post-construction cleanup',
-      'Paint and debris removal',
-      'High-rise window cleaning',
+      'Paint removal',
       'Solar panel cleaning',
     ],
     pricing: 'Contact us for specialty pricing',
@@ -181,5 +178,7 @@ export default function ServicesPage() {
         buttonText="Get Free Quote"
       />
     </>
+  )
+}
   )
 }
