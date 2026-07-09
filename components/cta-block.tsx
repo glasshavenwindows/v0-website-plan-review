@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-const QUOTE_FORM_URL = 'https://forms.gle/FM6pga7bQWbYh4MM8'
+const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 
 interface CTABlockProps {
   heading?: string
