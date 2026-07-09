@@ -22,6 +22,12 @@ interface FormData {
   message: string
 }
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
+}
+
 export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -52,6 +58,12 @@ export function ContactForm() {
       if (!res.ok) throw new Error('Form submission failed')
 
       setIsSubmitted(true)
+
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18137932366/c7kbCPj6ns0cEM7E68hD',
+        })
+      }
 
       setFormData({
         name: '',
@@ -142,6 +154,10 @@ export function ContactForm() {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
       </div>
+    </form>
+  )
+}
+
     </form>
   )
 }
