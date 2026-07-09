@@ -157,7 +157,3 @@ export function ContactForm() {
     </form>
   )
 }
-
-    </form>
-  )
-}
