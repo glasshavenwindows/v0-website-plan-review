@@ -15,6 +15,7 @@ const PHONE_LINK = 'tel:+14066075279'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
+  { name: 'Service Areas', href: '/service-areas' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ]
