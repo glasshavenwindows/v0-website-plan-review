@@ -56,6 +56,37 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Glass Haven Window Cleaning',
+  image: 'https://www.glasshavenwindows.com/images/glass-haven-logo.png',
+  url: 'https://www.glasshavenwindows.com',
+  telephone: '+14066075279',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bigfork',
+    addressRegion: 'MT',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    'Bigfork, MT',
+    'Kalispell, MT',
+    'Whitefish, MT',
+    'Lakeside, MT',
+    'Woods Bay, MT',
+    'Polson, MT',
+    'Kila, MT',
+    'Columbia Falls, MT',
+    'Ferndale, MT',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '17',
+  },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,6 +95,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+
         {/* GoHighLevel chat widget */}
         <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
