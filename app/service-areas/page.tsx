@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { CTABlock } from '@/components/cta-block'
 import { serviceAreas } from '@/lib/service-areas'
@@ -44,21 +45,33 @@ export default function ServiceAreasPage() {
               <Link
                 key={area.slug}
                 href={`/service-areas/${area.slug}`}
-                className="glass-card rounded-xl p-6 card-hover animate-fade-in-up opacity-0"
+                className="glass-card rounded-xl overflow-hidden card-hover animate-fade-in-up opacity-0"
                 style={{ animationDelay: `${index * 75}ms`, animationFillMode: 'forwards' }}
               >
-                <h2 className="text-xl font-semibold text-foreground">
-                  Window Cleaning in {area.name}, MT
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Serving {area.blurb}.
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                  View Details
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                  </svg>
-                </span>
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={area.image}
+                    alt={`View of ${area.name}, Montana`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="p-6">
+                  <h2 className="text-xl font-semibold text-foreground">
+                    Window Cleaning in {area.name}, MT
+                  </h2>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Serving {area.blurb}.
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                    View Details
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

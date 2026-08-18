@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { CTABlock } from '@/components/cta-block'
@@ -144,6 +145,20 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
               or call {PHONE_NUMBER}
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Town Photo */}
+      <section className="container-content -mt-6 md:-mt-10 relative z-10">
+        <div className="glass-card rounded-2xl overflow-hidden aspect-[21/9] relative">
+          <Image
+            src={area.image}
+            alt={`View of ${area.name}, Montana`}
+            fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover"
+            priority
+          />
         </div>
       </section>
 
