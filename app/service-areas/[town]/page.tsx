@@ -57,8 +57,9 @@ export function generateStaticParams() {
   return serviceAreas.map((area) => ({ town: area.slug }))
 }
 
-export function generateMetadata({ params }: { params: { town: string } }): Metadata {
-  const area = getServiceArea(params.town)
+export async function generateMetadata({ params }: { params: Promise<{ town: string }> }): Promise<Metadata> {
+  const { town } = await params
+  const area = getServiceArea(town)
   if (!area) return {}
 
   return {
@@ -67,8 +68,9 @@ export function generateMetadata({ params }: { params: { town: string } }): Meta
   }
 }
 
-export default function TownPage({ params }: { params: { town: string } }) {
-  const area = getServiceArea(params.town)
+export default async function TownPage({ params }: { params: Promise<{ town: string }> }) {
+  const { town } = await params
+  const area = getServiceArea(town)
   if (!area) notFound()
 
   const otherAreas = serviceAreas.filter((a) => a.slug !== area.slug)
