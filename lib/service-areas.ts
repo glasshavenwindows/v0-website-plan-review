@@ -12,7 +12,7 @@ export const serviceAreas: ServiceArea[] = [
   { name: 'Lakeside', slug: 'lakeside', blurb: 'the community on the west shore of Flathead Lake', image: '/images/service-areas/lakeside.jpg' },
   { name: 'Woods Bay', slug: 'woods-bay', blurb: 'the Flathead Lake community between Bigfork and Lakeside', image: '/images/service-areas/woods-bay.jpg' },
   { name: 'Polson', slug: 'polson', blurb: 'the town at the south end of Flathead Lake', image: '/images/service-areas/polson.jpg' },
-  { name: 'Kila', slug: 'kila', blurb: 'the rural community west of Kalispell', image: '/images/service-areas/kila.jpg' },
+  { name: 'Kila', slug: 'kila', blurb: 'the rural community west of Kalispell', image: '/images/service-areas/kila.webp' },
   { name: 'Columbia Falls', slug: 'columbia-falls', blurb: 'the gateway town to Glacier National Park', image: '/images/service-areas/columbia-falls.jpg' },
   { name: 'Ferndale', slug: 'ferndale', blurb: 'the community east of Kalispell near Flathead Lake', image: '/images/service-areas/ferndale.jpg' },
 ]
