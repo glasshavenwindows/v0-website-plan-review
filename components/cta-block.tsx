@@ -24,7 +24,7 @@ export function CTABlock({
         'py-16 md:py-20 relative overflow-hidden',
         variant === 'glass' && 'bg-gradient-to-br from-primary/10 via-background to-secondary/10',
         variant === 'minimal' && 'bg-transparent',
-        variant === 'default' && 'bg-muted pattern-bg',
+        variant === 'default' && 'bg-[#fdf8e7]',
         className
       )}
     >

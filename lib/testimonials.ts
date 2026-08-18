@@ -18,16 +18,6 @@ export const testimonials: Testimonial[] = [
     featured: true,
   },
   {
-    author: 'Connie Whittaker',
-    text: 'This was the best experience I have had having him clean my windows. He was not only there to get the job done but very considerate and so nice. I hope I can get him back next year.',
-    featured: true,
-  },
-  {
-    author: 'Hannah Nicole',
-    text: 'Will was kind, punctual and did an amazing job! Great communication, very speedy and efficient! I would recommend Glass Haven for all your window cleaning needs!!',
-    featured: true,
-  },
-  {
     author: 'Sam Williams',
     text: 'Amazing! Our windows look so good! Very detail-oriented and our windows look crystal clear! We will be treating ourselves to this service every 6 months for sure! Already recommended to several friends.',
     featured: true,
@@ -38,8 +28,18 @@ export const testimonials: Testimonial[] = [
     featured: true,
   },
   {
+    author: 'Hannah Nicole',
+    text: 'Will was kind, punctual and did an amazing job! Great communication, very speedy and efficient! I would recommend Glass Haven for all your window cleaning needs!!',
+    featured: true,
+  },
+  {
     author: 'Nicole Merrill',
     text: 'Very professional, honest, and kind! Best work and service in the Valley!',
+    featured: true,
+  },
+  {
+    author: 'Connie Whittaker',
+    text: 'This was the best experience I have had having him clean my windows. He was not only there to get the job done but very considerate and so nice. I hope I can get him back next year.',
     featured: true,
   },
   {

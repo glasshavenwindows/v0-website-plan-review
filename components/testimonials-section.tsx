@@ -1,3 +1,6 @@
+'use client'
+
+import { useRef } from 'react'
 import { StarRating, TestimonialCard } from '@/components/testimonial-card'
 import { testimonials } from '@/lib/testimonials'
 
@@ -22,6 +25,15 @@ const reviewSchema = {
 }
 
 export function TestimonialsSection() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (direction: 'left' | 'right') => {
+    const el = scrollRef.current
+    if (!el) return
+    const amount = el.clientWidth * 0.9
+    el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' })
+  }
+
   return (
     <section className="section-padding bg-muted/50 pattern-bg">
       <script
@@ -44,19 +56,48 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((testimonial, index) => (
-            <TestimonialCard
-              key={testimonial.author}
-              author={testimonial.author}
-              text={testimonial.text}
-              business={testimonial.business}
-              delay={index * 100}
-            />
-          ))}
+        <div className="relative mt-12">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
+          >
+            {featured.map((testimonial, index) => (
+              <TestimonialCard
+                key={testimonial.author}
+                author={testimonial.author}
+                text={testimonial.text}
+                business={testimonial.business}
+                delay={index * 100}
+                className="snap-start shrink-0 basis-[85%] sm:basis-[calc(50%-12px)] lg:basis-[calc(33.333%-16px)]"
+              />
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => scroll('left')}
+              aria-label="Previous reviews"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={() => scroll('right')}
+              aria-label="Next reviews"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <a
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
