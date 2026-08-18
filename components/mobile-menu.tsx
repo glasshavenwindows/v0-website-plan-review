@@ -63,7 +63,7 @@ export function MobileMenu({
 
             <button
               type="button"
-              className="rounded-md p-2 text-muted-foreground hover:text-foreground"
+              className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               onClick={onClose}
               aria-label="Close menu"
             >

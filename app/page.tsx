@@ -388,7 +388,7 @@ export default function HomePage() {
             ].map((item, index) => (
               <div
                 key={item.step}
-                className="relative animate-fade-in-up opacity-0 glass-card rounded-xl p-6"
+                className="relative animate-fade-in-up opacity-0 glass-card rounded-xl p-6 card-hover"
                 style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
               >
                 <div className="text-5xl font-bold text-secondary">{item.step}</div>

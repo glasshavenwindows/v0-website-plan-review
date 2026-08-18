@@ -1,11 +1,13 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { StarRating, TestimonialCard } from '@/components/testimonial-card'
 import { testimonials } from '@/lib/testimonials'
 
 const GOOGLE_REVIEWS_URL =
   'https://www.google.com/maps/place/Glass+Haven+Window+Cleaning/@48.07739,-114.235436,9z/data=!3m1!4b1!4m6!3m5!1s0x6eb8308526de2629:0xc2ae3d3c15c6b5a8!8m2!3d48.07739!4d-114.235436!16s%2Fg%2F11zbt4dzdb'
+
+const CARD_GAP_PX = 24 // matches the `gap-6` on the scroll track below
 
 const featured = testimonials.filter((t) => t.featured)
 
@@ -26,12 +28,28 @@ const reviewSchema = {
 
 export function TestimonialsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [index, setIndex] = useState(0)
+  const total = featured.length
 
-  const scroll = (direction: 'left' | 'right') => {
+  const cardStep = () => {
+    const el = scrollRef.current
+    const card = el?.children[0] as HTMLElement | undefined
+    return card ? card.getBoundingClientRect().width + CARD_GAP_PX : el?.clientWidth ?? 0
+  }
+
+  const goTo = (target: number) => {
     const el = scrollRef.current
     if (!el) return
-    const amount = el.clientWidth * 0.9
-    el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' })
+    const wrapped = ((target % total) + total) % total
+    el.scrollTo({ left: wrapped * cardStep(), behavior: 'smooth' })
+    setIndex(wrapped)
+  }
+
+  const handleScroll = () => {
+    const el = scrollRef.current
+    const step = cardStep()
+    if (!el || !step) return
+    setIndex(Math.round(el.scrollLeft / step))
   }
 
   return (
@@ -59,16 +77,17 @@ export function TestimonialsSection() {
         <div className="relative mt-12">
           <div
             ref={scrollRef}
+            onScroll={handleScroll}
             className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
           >
-            {featured.map((testimonial, index) => (
+            {featured.map((testimonial, i) => (
               <TestimonialCard
                 key={testimonial.author}
                 author={testimonial.author}
                 text={testimonial.text}
                 business={testimonial.business}
-                delay={index * 100}
-                className="snap-start shrink-0 basis-[85%] sm:basis-[calc(50%-12px)] lg:basis-[calc(33.333%-16px)]"
+                delay={i * 100}
+                className="snap-start shrink-0 basis-full sm:basis-[calc(50%-12px)] lg:basis-[calc(33.333%-16px)]"
               />
             ))}
           </div>
@@ -76,7 +95,7 @@ export function TestimonialsSection() {
           <div className="mt-6 flex items-center justify-center gap-3">
             <button
               type="button"
-              onClick={() => scroll('left')}
+              onClick={() => goTo(index - 1)}
               aria-label="Previous reviews"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
             >
@@ -86,7 +105,7 @@ export function TestimonialsSection() {
             </button>
             <button
               type="button"
-              onClick={() => scroll('right')}
+              onClick={() => goTo(index + 1)}
               aria-label="Next reviews"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
             >
@@ -102,9 +121,10 @@ export function TestimonialsSection() {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-primary hover:underline"
+            className="group inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
           >
-            Read all 17 reviews on Google →
+            Read all 17 reviews on Google
+            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>

@@ -30,7 +30,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between md:h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
             <Image
               src="/images/glass-haven-logo.png"
               alt="Glass Haven Windows"
@@ -83,7 +83,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-foreground transition-colors hover:bg-muted hover:text-primary md:hidden"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open menu"
           >

@@ -60,16 +60,16 @@ export default function ServiceAreasPage() {
               <Link
                 key={area.slug}
                 href={`/service-areas/${area.slug}`}
-                className="glass-card rounded-xl overflow-hidden card-hover animate-fade-in-up opacity-0"
+                className="group glass-card rounded-xl overflow-hidden card-hover animate-fade-in-up opacity-0"
                 style={{ animationDelay: `${index * 75}ms`, animationFillMode: 'forwards' }}
               >
-                <div className="relative aspect-[16/10]">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={area.image}
                     alt={`View of ${area.name}, Montana`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                     priority={index === 0}
                     loading={index === 0 ? undefined : 'lazy'}
                   />
@@ -84,7 +84,7 @@ export default function ServiceAreasPage() {
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
                     View Details
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                    <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                     </svg>
                   </span>

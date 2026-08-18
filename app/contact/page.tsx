@@ -118,7 +118,8 @@ export default function ContactPage() {
                 {contactInfo.map((item, index) => (
                   <div
                     key={item.title}
-                    className="glass-card rounded-xl p-5 card-hover"
+                    className="glass-card rounded-xl p-5 card-hover animate-fade-in-up opacity-0"
+                    style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">

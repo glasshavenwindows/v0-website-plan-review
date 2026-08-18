@@ -72,6 +72,15 @@
   html {
     scroll-behavior: smooth;
   }
+  /* Baseline subtle transition for every link/button so nothing snaps
+     instantly on hover — utility classes with their own transition-*
+     (card-hover, btn-lift, etc.) still take precedence over this. */
+  a,
+  button {
+    transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
 }
 
 /* Glass Morphism Effect */
