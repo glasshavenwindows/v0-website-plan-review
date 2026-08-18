@@ -11,12 +11,13 @@ const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.glasshavenwindows.com'),
   title: {
-    default: 'Glass Haven Windows | Professional Window Cleaning Services',
+    default: 'Glass Haven Windows | Window Cleaning in the Flathead Valley, MT',
     template: '%s | Glass Haven Windows',
   },
   description:
-    'Expert residential and commercial window cleaning services. Crystal-clear results, professional service, eco-friendly solutions. Free estimates available. Open 8am-6:30pm daily.',
+    'Expert residential and commercial window cleaning throughout the Flathead Valley, MT. Crystal-clear results, professional service, eco-friendly solutions. Free estimates available. Open 8am-6:30pm daily.',
   keywords: [
     'window cleaning',
     'professional window cleaning',
@@ -24,6 +25,8 @@ export const metadata: Metadata = {
     'commercial window cleaning',
     'glass cleaning',
     'window washing',
+    'Flathead Valley window cleaning',
+    'Bigfork MT window cleaning',
   ],
   authors: [{ name: 'Glass Haven Windows' }],
   creator: 'Glass Haven Windows',
@@ -31,15 +34,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Glass Haven Windows',
-    title: 'Glass Haven Windows | Professional Window Cleaning Services',
+    title: 'Glass Haven Windows | Window Cleaning in the Flathead Valley, MT',
     description:
-      'Expert residential and commercial window cleaning services. Crystal-clear results every time.',
+      'Expert residential and commercial window cleaning throughout the Flathead Valley, MT. Crystal-clear results every time.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Glass Haven Windows | Professional Window Cleaning Services',
+    title: 'Glass Haven Windows | Window Cleaning in the Flathead Valley, MT',
     description:
-      'Expert residential and commercial window cleaning services. Crystal-clear results every time.',
+      'Expert residential and commercial window cleaning throughout the Flathead Valley, MT. Crystal-clear results every time.',
   },
   robots: {
     index: true,
@@ -80,6 +83,21 @@ const localBusinessSchema = {
     'Columbia Falls, MT',
     'Ferndale, MT',
   ],
+  sameAs: ['https://www.facebook.com/214382179183619'],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: '08:00',
+    closes: '18:30',
+  },
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',

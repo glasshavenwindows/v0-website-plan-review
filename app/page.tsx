@@ -1,7 +1,32 @@
+import type { Metadata } from 'next'
 import { HeroSection } from '@/components/hero-section'
 import { ServiceCard } from '@/components/service-card'
 import { FeatureCard } from '@/components/feature-card'
 import { CTABlock } from '@/components/cta-block'
+import { TestimonialsSection } from '@/components/testimonials-section'
+
+const TITLE = 'Window Cleaning in the Flathead Valley, MT'
+const DESCRIPTION =
+  'Expert residential and commercial window cleaning throughout the Flathead Valley — Bigfork, Kalispell, Whitefish, and more. Crystal-clear results, eco-friendly solutions, free estimates. Open 8am-6:30pm daily.'
+const OG_DESCRIPTION =
+  'Expert residential and commercial window cleaning throughout the Flathead Valley. Crystal-clear results every time.'
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: `Glass Haven Windows | ${TITLE}`,
+    description: OG_DESCRIPTION,
+    url: '/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Glass Haven Windows | ${TITLE}`,
+    description: OG_DESCRIPTION,
+  },
+}
 
 const services = [
   {
@@ -327,6 +352,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsSection />
 
       {/* Process Section */}
       <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-secondary/5">

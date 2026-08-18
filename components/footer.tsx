@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 
-const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 const PHONE_NUMBER = '(406) 607-5279'
 const PHONE_LINK = 'tel:+14066075279'
 const EMAIL = 'glasshavenwindows@gmail.com'
@@ -23,31 +21,6 @@ const legal = [
 export function Footer() {
   return (
     <footer className="bg-foreground text-white">
-
-      {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-primary via-primary/95 to-secondary/80 py-12">
-        <div className="container-content text-center">
-
-          <h2 className="text-2xl font-bold text-primary-foreground md:text-3xl">
-            Ready for Crystal Clear Views?
-          </h2>
-
-          <p className="mt-2 text-primary-foreground/80">
-            Upload a few photos and get your fast window cleaning quote.
-          </p>
-
-          <Button
-            asChild
-            size="lg"
-            className="mt-6 btn-lift bg-white text-foreground hover:bg-secondary hover:text-foreground font-semibold border-2 border-white/20"
-          >
-            <a href={QUOTE_FORM_URL} target="_blank" rel="noopener noreferrer">
-              Get Your Fast Quote
-            </a>
-          </Button>
-
-        </div>
-      </div>
 
       {/* Footer Content */}
       <div className="container-content py-12 md:py-16">
@@ -123,6 +96,17 @@ export function Footer() {
                   className="hover:text-primary transition-colors"
                 >
                   {EMAIL}
+                </a>
+              </li>
+
+              <li className="flex items-center gap-2 text-sm text-white/70">
+                <a
+                  href="https://www.facebook.com/214382179183619"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  Facebook
                 </a>
               </li>
 

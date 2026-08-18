@@ -5,10 +5,25 @@ import { Button } from '@/components/ui/button'
 import { CTABlock } from '@/components/cta-block'
 import { serviceAreas } from '@/lib/service-areas'
 
+const TITLE = 'Service Areas | Flathead Valley, MT'
+const DESCRIPTION =
+  'Glass Haven Windows provides professional window cleaning throughout the Flathead Valley, including Bigfork, Kalispell, Whitefish, Lakeside, Woods Bay, Polson, Kila, Columbia Falls, and Ferndale, MT.'
+
 export const metadata: Metadata = {
-  title: 'Service Areas',
-  description:
-    'Glass Haven Windows provides professional window cleaning throughout the Flathead Valley, including Bigfork, Kalispell, Whitefish, Lakeside, Woods Bay, Polson, Kila, Columbia Falls, and Ferndale, MT.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/service-areas' },
+  openGraph: {
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+    url: '/service-areas',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+  },
 }
 
 const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'

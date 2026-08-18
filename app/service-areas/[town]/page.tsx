@@ -5,7 +5,9 @@ import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { CTABlock } from '@/components/cta-block'
 import { ServiceCard } from '@/components/service-card'
+import { StarRating } from '@/components/testimonial-card'
 import { serviceAreas, getServiceArea } from '@/lib/service-areas'
+import { getTownTestimonial } from '@/lib/testimonials'
 
 const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
 const PHONE_NUMBER = '(406) 607-5279'
@@ -63,9 +65,25 @@ export async function generateMetadata({ params }: { params: Promise<{ town: str
   const area = getServiceArea(town)
   if (!area) return {}
 
+  const title = `Window Cleaning in ${area.name}, MT`
+  const description = `Professional residential and commercial window cleaning in ${area.name}, MT from Glass Haven Windows. 5.0-star rated, fully insured, satisfaction guaranteed. Get a free quote today.`
+  const path = `/service-areas/${area.slug}`
+
   return {
-    title: `Window Cleaning in ${area.name}, MT`,
-    description: `Professional residential and commercial window cleaning in ${area.name}, MT from Glass Haven Windows. 5.0-star rated, fully insured, satisfaction guaranteed. Get a free quote today.`,
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: `${title} | Glass Haven Windows`,
+      description,
+      url: path,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | Glass Haven Windows`,
+      description,
+    },
   }
 }
 
@@ -75,6 +93,7 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
   if (!area) notFound()
 
   const otherAreas = serviceAreas.filter((a) => a.slug !== area.slug)
+  const townTestimonial = getTownTestimonial(area.slug)
 
   const schema = {
     '@context': 'https://schema.org',
@@ -188,6 +207,39 @@ export default async function TownPage({ params }: { params: Promise<{ town: str
           </div>
         </div>
       </section>
+
+      {/* Local Context — genuine, town-specific content (not a reused template) */}
+      <section className="section-padding">
+        <div className="container-content max-w-3xl">
+          <h2 className="text-2xl font-bold text-foreground md:text-3xl text-center">
+            Window Cleaning in {area.name}, Montana
+          </h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed text-center">
+            {area.localDetail}
+          </p>
+        </div>
+      </section>
+
+      {/* Local Testimonial — only renders for towns with a verified, town-specific review */}
+      {townTestimonial && (
+        <section className="section-padding bg-muted/50">
+          <div className="container-content max-w-2xl">
+            <div className="glass-card rounded-2xl p-8 text-center">
+              <div className="flex justify-center">
+                <StarRating />
+              </div>
+              <p className="mt-4 text-lg italic text-foreground">
+                &ldquo;{townTestimonial.text}&rdquo;
+              </p>
+              <p className="mt-4 text-sm font-semibold text-foreground">
+                {townTestimonial.author}
+                {townTestimonial.business ? ` · ${townTestimonial.business}` : ''}
+              </p>
+              <p className="text-xs text-muted-foreground">Google Review</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <CTABlock

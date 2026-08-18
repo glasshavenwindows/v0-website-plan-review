@@ -2,10 +2,25 @@ import type { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import { ContactForm } from '@/components/contact-form'
 
+const TITLE = 'Contact Us | Flathead Valley, MT'
+const DESCRIPTION =
+  'Get in touch with Glass Haven Windows, serving the Flathead Valley, MT. Schedule your free estimate or ask us any questions. Open 8am-6:30pm daily.'
+
 export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Get in touch with Glass Haven Windows. Schedule your free estimate or ask us any questions. Open 8am-6:30pm daily.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+    url: '/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+  },
 }
 
 const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'

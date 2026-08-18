@@ -2,10 +2,25 @@ import type { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import { CTABlock } from '@/components/cta-block'
 
+const TITLE = 'Window Cleaning Services | Flathead Valley, MT'
+const DESCRIPTION =
+  'Explore our comprehensive window cleaning services — residential, commercial, and specialty cleaning. Professional results for every property throughout the Flathead Valley, MT.'
+
 export const metadata: Metadata = {
-  title: 'Services',
-  description:
-    'Explore our comprehensive window cleaning services including residential, commercial, and specialty cleaning. Professional results for every property.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/services' },
+  openGraph: {
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+    url: '/services',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+  },
 }
 
 const QUOTE_FORM_URL = 'https://forms.gle/4c7HSYKmWhmjq47B6'
@@ -30,7 +45,7 @@ const services = [
       'Skylight cleaning',
       'Storm window cleaning',
     ],
-    pricing: 'Starting at $150 for standard homes',
+    pricing: 'Free, no-obligation quotes',
   },
   {
     id: 'commercial',
@@ -84,7 +99,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up">
-            Professional window cleaning tailored to your needs.
+            Professional window cleaning tailored to your needs, throughout the Flathead Valley.
           </p>
 
           <Button

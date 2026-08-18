@@ -2,10 +2,25 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CTABlock } from '@/components/cta-block'
 
+const TITLE = 'About Us | Flathead Valley, MT'
+const DESCRIPTION =
+  'Learn about Glass Haven Windows — a Bigfork, MT-based window cleaning company serving the Flathead Valley with crystal-clear results for every customer.'
+
 export const metadata: Metadata = {
-  title: 'About',
-  description:
-    'Learn about Glass Haven Windows - our story, values, and commitment to delivering crystal clear results for every customer.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+    url: '/about',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${TITLE} | Glass Haven Windows`,
+    description: DESCRIPTION,
+  },
 }
 
 const values = [
@@ -116,7 +131,7 @@ export default function AboutPage() {
             className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up"
             style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
           >
-            More than just window cleaners. We are your partners in maintaining a beautiful, bright space.
+            More than just window cleaners — we&apos;re based in Bigfork and proud to serve the whole Flathead Valley.
           </p>
         </div>
       </section>
