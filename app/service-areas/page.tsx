@@ -55,6 +55,8 @@ export default function ServiceAreasPage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : 'lazy'}
                   />
                 </div>
 
